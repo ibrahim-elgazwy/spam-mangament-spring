@@ -57,4 +57,13 @@ public class ReportServiceImp implements ReportService {
 		
 		return new PagingResponse(reports, reports.getContent());
 	}
+
+	@Override
+	public void deleteReport(Integer reportId) throws ReportException {
+		Report report = reportRepository
+				.findById(reportId)
+				.orElseThrow(() -> new ReportException(ErrorCodeEnum.NOT_FOIND_REQUEST_ID));
+		
+		reportRepository.deleteById(report.getId());
+	}
 }

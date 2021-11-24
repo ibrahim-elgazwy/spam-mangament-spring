@@ -14,7 +14,9 @@ public interface ReportService {
 	
 	PagingResponse findReportsByState(ReportStateEnum state,Pageable pageable);
 	
-	Report changeReportState(Integer id, ReportStateEnum reportStateEnum) throws ReportException;
+	Report changeReportState(Integer reportId, ReportStateEnum reportStateEnum) throws ReportException;
 	
 	Report createNewReport(Report report);
+	
+	void deleteReport(Integer reportId) throws ReportException;
 }

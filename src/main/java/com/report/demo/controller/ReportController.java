@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -77,5 +78,12 @@ public class ReportController {
 	public RestResponse createNewReport(@RequestBody Report report) {
 		Report savedReport = reportService.createNewReport(report);
 		return new RestResponse(savedReport);
+	}
+	
+	@DeleteMapping("/{reportId}")
+	public RestResponse blockReport(@PathVariable Integer reportId) throws ReportException {
+		reportService.deleteReport(reportId);
+		String blockReportMsg = new String("Report are blocked !");
+		return new RestResponse(blockReportMsg);
 	}
 }
