@@ -37,17 +37,17 @@ public class ReportController {
 	@Autowired
 	private ValidateReportUpdateRequest validateReportUpdateRequest;
 
-	@InitBinder()
-	private void validateRequestInitBinder(WebDataBinder binder) {
+	@InitBinder("updateReportRequest")
+	private void correctSakUserControllerInitBinder(WebDataBinder binder) {
 		binder.setValidator(validateReportUpdateRequest);
 	}
 	
 	@PutMapping("/{reportId}")
 	public RestResponse updateReportState( 
 			@PathVariable("reportId") Integer reportId,
-			@Validated @RequestBody UpdateReportRequest updadeRequest) throws ReportException {
+			@Validated @RequestBody UpdateReportRequest updateReportRequest) throws ReportException {
 		
-		ReportStateEnum reportState = ReportStateEnum.getReportEnum(updadeRequest.getTicketState());
+		ReportStateEnum reportState = ReportStateEnum.getReportEnum(updateReportRequest.getTicketState());
 		
 		Report report = reportService.changeReportState(reportId, reportState);
 		

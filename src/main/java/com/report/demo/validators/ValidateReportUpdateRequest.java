@@ -25,13 +25,15 @@ public class ValidateReportUpdateRequest implements Validator, Serializable {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		UpdateReportRequest updateReportRequest = (UpdateReportRequest) target;
-		
-		if(updateReportRequest.getTicketState().isEmpty() || 
-				!ReportStateEnum.isReportStateEnum(updateReportRequest.getTicketState())) {
-		
-			errors.rejectValue("ticketState", ErrorCodeEnum.INVALID_REPORT_STATE.getErrorCode(), null, null);
-			return;
+		if(target instanceof UpdateReportRequest) {
+			UpdateReportRequest updateReportRequest = (UpdateReportRequest) target;
+			
+			if(updateReportRequest.getTicketState().isEmpty() || 
+					!ReportStateEnum.isReportStateEnum(updateReportRequest.getTicketState())) {
+			
+				errors.rejectValue("ticketState", ErrorCodeEnum.INVALID_REPORT_STATE.getErrorCode(), null, null);
+				return;
+			}
 		}
 	}
 
