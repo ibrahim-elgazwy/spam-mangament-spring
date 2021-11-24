@@ -22,7 +22,7 @@ public enum ReportStateEnum {
 	}
 	
 	public static Boolean isReportStateEnum(String checkState) {
-        var isReportState = Arrays.stream(ReportStateEnum.values())
+        boolean isReportState = Arrays.stream(ReportStateEnum.values())
         			.map(Enum::name)
         			.collect(Collectors.toList())
         			.contains(checkState);
