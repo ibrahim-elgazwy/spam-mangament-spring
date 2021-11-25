@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public enum ReportStateEnum {
-	OPEN("Open"),
-	CLOSED("Closed");
+	OPEN("OPEN"),
+	CLOSED("CLOSED");
 	
 	private String state;
 	
