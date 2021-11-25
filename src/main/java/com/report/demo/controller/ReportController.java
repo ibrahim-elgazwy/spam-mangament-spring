@@ -52,7 +52,7 @@ public class ReportController {
 		
 		Report report = reportService.changeReportState(reportId, reportState);
 		
-		return new RestResponse(report);
+		return new RestResponse(report);	
 	}
 	
 	@GetMapping()
