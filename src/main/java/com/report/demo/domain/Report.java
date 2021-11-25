@@ -3,6 +3,7 @@ package com.report.demo.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,6 +16,7 @@ import javax.persistence.Version;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import com.report.demo.converter.ReportStateAttributeConverter;
 import com.report.demo.reportEnum.ReportStateEnum;
 import com.report.demo.reportEnum.ReportTypeEnum;
 
@@ -36,7 +38,7 @@ public class Report implements Serializable {
 	private String source;
 	
 	@Column(name = "state")
-	@Enumerated(EnumType.STRING)
+	@Convert(converter = ReportStateAttributeConverter.class)
 	private ReportStateEnum state;
 	
 	@Column(name = "message")
