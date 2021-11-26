@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.report.demo.domain.Report;
+import com.report.demo.dto.ReportDto;
 import com.report.demo.reportEnum.ReportException;
 import com.report.demo.reportEnum.ReportStateEnum;
 import com.report.demo.requests.UpdateReportRequest;
@@ -76,7 +77,7 @@ public class ReportController {
 	
 	@PostMapping()
 	public RestResponse createNewReport(@RequestBody Report report) {
-		Report savedReport = reportService.createNewReport(report);
+		ReportDto savedReport = reportService.createNewReport(report);
 		return new RestResponse(savedReport);
 	}
 	

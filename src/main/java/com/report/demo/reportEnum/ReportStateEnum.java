@@ -3,9 +3,12 @@ package com.report.demo.reportEnum;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum ReportStateEnum {
-	OPEN("OPEN"),
-	CLOSED("CLOSED");
+	OPEN("Open"),
+	CLOSED("Closed");
 	
 	private String state;
 	
