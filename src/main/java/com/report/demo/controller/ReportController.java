@@ -58,7 +58,7 @@ public class ReportController {
 	
 	@GetMapping()
 	public RestResponse getReports() {
-		List<Report> reports = reportService.finalAllReports();
+		List<ReportDto> reports = reportService.finalAllReports();
 		return new RestResponse(reports);
 	}
 	
