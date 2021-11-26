@@ -11,8 +11,8 @@ public enum ErrorCodeEnum {
 			 "check resource url"),
 	NOT_FOIND_REQUEST_ID(
 			"NOT_FOIND_REQUEST_ID", 
-			"request id not founded, please check valid request id", 
-			"check request id"),
+			"report id not founded, please check valid report id", 
+			"check report id"),
 	INVALID_REPORT_STATE(
 			"INVALID_REPORT_STATE", 
 			"Unvalid Report state", 
