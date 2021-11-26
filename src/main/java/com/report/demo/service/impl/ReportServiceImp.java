@@ -66,4 +66,10 @@ public class ReportServiceImp implements ReportService {
 		
 		reportRepository.deleteById(report.getId());
 	}
+
+	@Override
+	public List<Report> creatListOfNewReport(List<Report> reports) {
+		List<Report> newReports = reportRepository.saveAll(reports);
+		return newReports;
+	}
 }

@@ -18,5 +18,7 @@ public interface ReportService {
 	
 	Report createNewReport(Report report);
 	
+	List<Report> creatListOfNewReport(List<Report> reports);
+	
 	void deleteReport(Integer reportId) throws ReportException;
 }

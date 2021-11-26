@@ -80,6 +80,12 @@ public class ReportController {
 		return new RestResponse(savedReport);
 	}
 	
+	@PostMapping("/addListOfNewReports")
+	public RestResponse createNewReports(@RequestBody List<Report> reports) {
+		List<Report>  savedReports = reportService.creatListOfNewReport(reports);
+		return new RestResponse(savedReports);
+	}
+	
 	@DeleteMapping("/{reportId}")
 	public RestResponse blockReport(@PathVariable Integer reportId) throws ReportException {
 		reportService.deleteReport(reportId);
